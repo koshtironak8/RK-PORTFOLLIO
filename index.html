@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RK GRAPHIX | Ronak Koshti UI/UX Designer</title>
+<link rel="stylesheet" href="style.css">
+<!-- Fontawesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- Loading Page -->
+<div id="loading-page">
+  <div class="loader"></div>
+  <div id="loading-text">Loading RK GRAPHIX...</div>
+</div>
+
+<header>
+  <div class="logo">RK GRAPHIX</div>
+  <nav>
+    <ul>
+      <li><a href="#hero" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About Me</a></li>
+      <li><a href="#services" class="nav-link">Services</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="download-cv" onclick="location.href='#'">Download CV</button>
+</header>
+
+<main class="container">
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div id="hero-text">
+      <p class="intro">Hi I am <span class="name">Ronak Koshti</span></p>
+      <h1>UI & UX Designer</h1>
+      <p>I am a passionate UI/UX Designer, skilled in Figma, Adobe XD, and Photoshop. I specialize in creating clean, modern, and user-friendly mobile & web designs that deliver real value.</p>
+      <button class="btn" onclick="scrollToSection('#contact')">Hire Me</button>
+      <div id="social-icons">
+        <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div id="hero-img-wrapper">
+      <!-- Sample animated 3D boy image -->
+      <img id="hero-img" src="boy.png" alt="Cartoon 3D boy" />
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div id="about-img-wrapper">
+      <!-- Space reserved for 3D cartoon boy image -->
+      <img src="boy.png" alt="3D Cartoon Boy" />
+    </div>
+    <div id="about-text">
+      <h2>About Me</h2>
+      <p>I am Koshti Ronak, a passionate UI/UX Designer from Ahmedabad, Gujarat. With hands-on experience in tools like Figma, Adobe XD, Photoshop.</p>
+      <div class="skill">
+        <label for="ux">UX</label>
+        <progress id="ux" max="100" value="85"></progress>
+      </div>
+      <div class="skill">
+        <label for="website-design">Website Design</label>
+        <progress id="website-design" max="100" value="90"></progress>
+      </div>
+      <div class="skill">
+        <label for="app-design">App Design</label>
+        <progress id="app-design" max="100" value="88"></progress>
+      </div>
+      <div class="skill">
+        <label for="graphic-design">Graphic Design</label>
+        <progress id="graphic-design" max="100" value="80"></progress>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <p>I provide professional design services to create modern, user-friendly, and visually engaging digital products.</p>
+    <div class="services-list">
+      <div class="service-card" style="animation-delay: 0.1s;">
+        <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
+        <div class="service-title">UI/UX</div>
+        <div class="service-desc">Clean and intuitive designs for seamless user experiences.</div>
+      </div>
+      <div class="service-card" style="animation-delay: 0.2s;">
+        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="service-title">Web Design</div>
+        <div class="service-desc">Responsive and attractive websites tailored to your brand.</div>
+      </div>
+      <div class="service-card" style="animation-delay: 0.3s;">
+        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+        <div class="service-title">App Design</div>
+        <div class="service-desc">Engaging mobile app screens with smooth user flow.</div>
+      </div>
+      <div class="service-card" style="animation-delay: 0.4s;">
+        <div class="service-icon"><i class="fas fa-palette"></i></div>
+        <div class="service-title">Graphic Design</div>
+        <div class="service-desc">Creative visuals and branding for lasting impact.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <p class="description">A selection of my recent works showcasing design, creativity, and user-focused solutions.</p>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="uiux">UI/UX</button>
+      <button class="filter-btn" data-filter="web">Web Design</button>
+      <button class="filter-btn" data-filter="app">App Design</button>
+      <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+    </div>
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- UI/UX projects -->
+      <div class="project-card" data-category="uiux" style="animation-delay: 0.1s;">
+        <img class="project-img" src="https://i.ibb.co/1vT9Fzp/uiux1.png" alt="UI/UX Project 1" />
+        <div class="project-info">
+          <div class="project-type">UI/UX</div>
+          <div class="project-title">Social Media App Wireframe</div>
+        </div>
+      </div>
+      <div class="project-card" data-category="uiux" style="animation-delay: 0.15s;">
+        <img class="project-img" src="https://i.ibb.co/QvWktQG/uiux2.png" alt="UI/UX Project 2" />
+        <div class="project-info">
+          <div class="project-type">UI/UX</div>
+          <div class="project-title">E-Commerce Mobile App</div>
+        </div>
+      </div>
+
+      <!-- Web Design projects -->
+      <div class="project-card" data-category="web" style="animation-delay: 0.2s;">
+        <img class="project-img" src="https://i.ibb.co/P5yn1rN/web1.png" alt="Web Design Project 1" />
+        <div class="project-info">
+          <div class="project-type">Web Design</div>
+          <div class="project-title">AirCalling Landing Page Design</div>
+        </div>
+      </div>
+      <div class="project-card" data-category="web" style="animation-delay: 0.25s;">
+        <img class="project-img" src="https://i.ibb.co/mDfDyzs/web2.png" alt="Web Design Project 2" />
+        <div class="project-info">
+          <div class="project-type">Web Design</div>
+          <div class="project-title">Business Landing Page Design</div>
+        </div>
+      </div>
+      <div class="project-card" data-category="web" style="animation-delay: 0.3s;">
+        <img class="project-img" src="https://i.ibb.co/GRxmWQ6/web3.png" alt="Web Design Project 3" />
+        <div class="project-info">
+          <div class="project-type">Web Design</div>
+          <div class="project-title">Ecom Web Page Design</div>
+        </div>
+      </div>
+
+      <!-- App Design projects -->
+      <div class="project-card" data-category="app" style="animation-delay: 0.35s;">
+        <img class="project-img" src="https://i.ibb.co/YLf88bY/app1.png" alt="App Design Project 1" />
+        <div class="project-info">
+          <div class="project-type">App Design</div>
+          <div class="project-title">Fitness Tracker App</div>
+        </div>
+      </div>
+      <div class="project-card" data-category="app" style="animation-delay: 0.4s;">
+        <img class="project-img" src="https://i.ibb.co/QF5vJqv/app2.png" alt="App Design Project 2" />
+        <div class="project-info">
+          <div class="project-type">App Design</div>
+          <div class="project-title">Travel Booking App</div>
+        </div>
+      </div>
+
+      <!-- Graphic Design projects -->
+      <div class="project-card" data-category="graphic" style="animation-delay: 0.45s;">
+        <img class="project-img" src="https://i.ibb.co/zHqfcrv/graphic1.png" alt="Graphic Design Project 1" />
+        <div class="project-info">
+          <div class="project-type">Graphic Design</div>
+          <div class="project-title">Brand Logo & Identity</div>
+        </div>
+      </div>
+      <div class="project-card" data-category="graphic" style="animation-delay: 0.5s;">
+        <img class="project-img" src="https://i.ibb.co/sPsQbY9/graphic2.png" alt="Graphic Design Project 2" />
+        <div class="project-info">
+          <div class="project-type">Graphic Design</div>
+          <div class="project-title">Marketing Poster Design</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <p class="description">What my clients say about working with me, my design process, and the results we achieved together.</p>
+    <div class="testimonial-slider" aria-label="Testimonials">
+      <div class="testimonial-slide active">
+        <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" />
+        <div>
+          <p class="testimonial-content">Working with Ronak on our RR Interior World project was a great experience. He understood our vision, designed a modern and user-friendly interface, and delivered everything on time. The attention to detail and creativity really impressed us.</p>
+          <p class="testimonial-author">- Abhishek Yognik</p>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo" />
+        <div>
+          <p class="testimonial-content">Ronak transformed our app's UI into something beautiful and functional. The communication was smooth, and deadlines were met without hassle. We are thrilled with the results!</p>
+          <p class="testimonial-author">- Sneha Patel</p>
+        </div>
+      </div>
+      <div class="testimonial-slide">
+        <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client Photo" />
+        <div>
+          <p class="testimonial-content">Professional, creative, and easy to work with. Ronak took our website to a new level with his modern design approach and user experience insights.</p>
+          <p class="testimonial-author">- Rajesh Singh</p>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-controls" aria-label="Testimonial navigation">
+      <button class="control-btn active" aria-label="Show testimonial 1"></button>
+      <button class="control-btn" aria-label="Show testimonial 2"></button>
+      <button class="control-btn" aria-label="Show testimonial 3"></button>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Let's Design Together</h2>
+    <p class="description">Have an idea or a project in mind? Let's collaborate and turn your vision into a clean, modern, and user-friendly design that truly stands out.</p>
+    <form id="contact-form" aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thank you for contacting!');">
+      <input type="email" name="email" placeholder="Enter Your Email" required aria-required="true" aria-label="Email" />
+      <button type="submit">Contact Me</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <nav class="footer-nav" aria-label="Footer navigation">
+    <a href="#hero">Home</a>
+    <a href="#about">About Me</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="footer-social" aria-label="Social media links">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+  <div class="copyright">
+    &copy; 2025 <strong>Ronak Graphix</strong> All Rights Reserved, Inc.
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
