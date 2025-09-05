@@ -14,6 +14,20 @@
   ul {
     list-style: none;
   }
+  h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.description {
+    color: #666;
+    max-width: 600px;
+    margin: 10px auto 30px;
+    line-height: 1.6;
+    text-align: center;
+}
 
   /* Loading Page */
   #loading-page {
@@ -102,6 +116,30 @@
     background: #e05500;
   }
 
+/* My Projects Filters */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px auto;
+}
+.filter-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.filter-btn.active {
+    background-color: #ff6600;
+    color: white;
+    border-color: #ff6600;
+}
+
   /* Hero Section */
   #hero {
     display: flex;
@@ -187,76 +225,67 @@
   /* About Me */
   #about {
     display: flex;
-    gap: 40px;
-    margin-bottom: 60px;
     align-items: center;
-    flex-wrap: wrap;
-  }
-  #about-img-wrapper {
-    flex: 1 1 280px;
-    max-width: 300px;
-    height: 340px;
-    border-radius: 20px;
-    background: #f9f9f9;
-    border: 3px solid #ff6600;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeInLeft 1.2s ease forwards;
-    opacity: 0;
-  }
-  #about-img-wrapper img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 20px;
-  }
-  #about-text {
-    flex: 2 1 580px;
-    animation: fadeInRight 1.2s ease forwards;
-    opacity: 0;
-  }
-  #about-text h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-  }
-  #about-text p {
-    font-size: 1.05rem;
-    line-height: 1.6;
+    gap: 50px;
+    padding: 80px 40px; /* Increased padding for better spacing */
+}
+#about-img-wrapper {
+    flex-shrink: 0;
+    width: 300px;
+}
+#about-img-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+#about-text {
+    flex-grow: 1;
+}
+
+/* Skill Bars */
+.skill-bar-container {
+    text-align: left;
+    font-weight: 500;
+   color: #333;
+    position: relative;
     margin-bottom: 25px;
-    color: #333;
-  }
-  .skill {
-    margin-bottom: 18px;
-  }
-  .skill label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 7px;
-    color: #444;
-  }
-  .skill progress {
     width: 100%;
-    height: 12px;
-    border-radius: 10px;
-    appearance: none;
-    -webkit-appearance: none;
-    background: #eee;
-    overflow: hidden;
-  }
-  .skill progress::-webkit-progress-bar {
-    background: #eee;
-    border-radius: 10px;
-  }
-  .skill progress::-webkit-progress-value {
-    background: #ff6600;
-    border-radius: 10px;
-  }
-  .skill progress::-moz-progress-bar {
-    background: #ff6600;
-  }
+}
+.skill-name {
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+.progress-bar {
+    height: 15px;
+    background-color: #ff6600;
+    border-radius: 50px;
+    width: 0%;
+    transition: width 1.5s ease-in-out; /* Animation time set here */
+}
+.skill-bar-container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15px;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 50px;
+    z-index: -1;
+}
+.skill-bar-container::after {
+    content: '0%';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    transition: content 0.8s linear; /* Note: This transition is not widely supported yet */
+}
 
   /* Services */
   #services {
@@ -416,142 +445,258 @@
   }
 
   /* Testimonials Section */
-  #testimonials {
-    background: #fef6ef;
-    padding: 50px 20px;
+  /* Testimonials Section */
+#testimonials {
+    padding: 40px 20px;
     text-align: center;
-    margin-bottom: 70px;
-  }
-  #testimonials h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-  }
-  #testimonials p.description {
-    color: #555;
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto 35px auto;
-  }
-  .testimonial-slider {
-    position: relative;
-    max-width: 650px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  .testimonial-slide {
-    display: none;
-    background: white;
-    box-shadow: 0 0 25px rgb(0 0 0 / 0.12);
-    border-radius: 12px;
-    padding: 25px 30px 20px;
-    align-items: center;
-    gap: 20px;
-  }
-  .testimonial-slide.active {
+}
+.testimonial-slider {
     display: flex;
-  }
-  .testimonial-img {
-    flex-shrink: 0;
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.12);
-  }
-  .testimonial-content {
-    font-size: 1rem;
-    font-style: italic;
-    color: #444;
-    flex: 1;
+    overflow-x: hidden;
     position: relative;
+    width: 100%;
+}
+.testimonial-slide {
+    display: flex;
+    flex: 0 0 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+}
+.testimonial-slide > div {
+    text-align: left;
+    position: relative;
+    padding-left: 20px;
+}
+.testimonial-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 25px;
+}
+.testimonial-content::before {
+    content: "“";
+    position: absolute;
+    top: -15px;
+    left: -25px;
+    font-size: 80px;
+    color: #ff6600;
+    line-height: 1;
+    font-family: sans-serif;
+}
+.testimonial-author {
+    text-align: right;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 15px;
+    color: #555;
+}
+.testimonial-controls {
+    margin-top: 20px;
+}
+.control-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #ff6600;
+    background-color: transparent;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.control-btn.active {
+    background-color: #ff6600;
+}
+.testimonial-card {
+  display: flex; /* इमेज और टेक्स्ट को एक लाइन में रखने के लिए */
+  align-items: flex-start; /* ऊपर की तरफ संरेखित करें */
+  gap: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.testimonial-img {
+  flex-shrink: 0; /* इमेज को छोटा होने से रोकता है */
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* गोल आकार */
+}
+
+/* कंटेंट वाले हिस्से की स्टाइलिंग */
+.testimonial-text-wrapper {
+  position: relative; /* यह सबसे ज़रूरी है */
+  flex-grow: 1; /* बची हुई जगह भरने देता है */
+}
+
+.testimonial-content {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  text-align: right;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 15px;
+  color: #555;
+}
+
+/* --- मीडिया क्वेरी: छोटे डिवाइस (मोबाइल) के लिए --- */
+
+@media (max-width: 600px) {
+  .testimonial-card {
+    flex-direction: column; /* इमेज और टेक्स्ट को एक-दूसरे के नीचे रखने के लिए */
+    text-align: center;
+    align-items: center;
   }
   .testimonial-content::before {
-    content: '“';
-    font-size: 3rem;
-    color: #ff6600;
-    position: absolute;
-    top: -20px;
-    left: -15px;
-    font-weight: 900;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%); /* कोट को बीच में लाने के लिए */
+        font-size: 60px; /* साइज़ थोड़ा छोटा करें */
+    }
+  .testimonial-img {
+    margin-bottom: 20px;
   }
-  .testimonial-author {
-    margin-top: 12px;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1rem;
-    color: #222;
-    text-align: right;
+  .testimonial-text-wrapper {
+    position: relative;
+    padding-left: 0;
   }
-  .testimonial-controls {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  .testimonial-content::before {
+    top: -5px; /* मोबाइल के लिए कोट की पोजीशन को एडजस्ट करें */
+    left: 50%;
+    transform: translateX(-50%); /* कोट को टेक्स्ट के ऊपर बीच में लाने के लिए */
+    font-size: 60px; /* मोबाइल पर साइज़ छोटा करें */
   }
-  .testimonial-controls button {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 1.8px solid #bbb;
-    background: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-  .testimonial-controls button.active, .testimonial-controls button:hover {
-    background: #ff6600;
-    border-color: #ff6600;
-  }
+}
 
+/* --- Media Queries for Mobile --- */
+@media (max-width: 768px) {
+    /* About Section Mobile */
+    #about {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    #about-img-wrapper {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    /* Testimonials Mobile */
+    .testimonial-slide {
+        flex-direction: column;
+        text-align: center;
+    }
+    .testimonial-img {
+        margin: 0 auto 20px;
+    }
+    .testimonial-slide > div {
+        padding-left: 0;
+    }
+    .testimonial-content::before {
+    content: "“";
+    position: absolute;
+    top: -25px; /* टेक्स्ट के ऊपर की तरफ पोजीशन */
+    left: -20px; /* टेक्स्ट के बाईं तरफ पोजीशन */
+    font-size: 80px;
+    color: #ff6600; /* ऑरेंज रंग */
+    line-height: 1;
+    font-family: sans-serif;
+    opacity: 0.8;
+}
+}
   /* Contact Section */
-  #contact {
-    text-align: center;
-    margin-bottom: 40px;
+  /* Contact Form Section */
+#contact-form-section {
+  padding: 80px 20px; 
+  text-align: center;
+}
+
+.contact-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form-container h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-form-container .description {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-row input,
+.form-row select,
+#project-details {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff; /* Light background for fields */
+  color: #333;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+#project-details:focus {
+  border-color: #ff6600; /* Orange border on focus */
+}
+
+#project-details {
+  resize: vertical;
+}
+
+#send-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6600; /* Orange button color */
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#send-button:hover {
+  background-color: #e65c00;
+}
+
+/* --- Media Queries for Mobile --- */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column; /* Stack input fields vertically on smaller screens */
   }
-  #contact h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 7px;
-  }
-  #contact p.description {
-    font-size: 1rem;
-    max-width: 600px;
-    color: #555;
-    margin: 0 auto 30px auto;
-  }
-  #contact-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  #contact-form input[type="email"] {
-    padding: 12px 15px;
-    border-radius: 30px;
-    border: 1.7px solid #ddd;
-    font-size: 1rem;
-    width: 280px;
-    transition: border-color 0.3s ease;
-  }
-  #contact-form input[type="email"]:focus {
-    outline: none;
-    border-color: #ff6600;
-  }
-  #contact-form button {
-    background: #ff6600;
-    border: none;
-    color: white;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  #contact-form button:hover {
-    background: #e05500;
-    transform: scale(1.05);
-  }
+}
 
   /* Footer */
   footer {
