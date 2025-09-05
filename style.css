@@ -170,7 +170,8 @@
   }
   #social-icons {
     margin-top: 20px;
-    display: flex;
+    display: inline-flex;
+    margin-left: 15px;
     gap: 15px;
     justify-content: center;
   }
@@ -334,12 +335,17 @@
   }
   .filters {
     margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap; /* अगर जगह कम हो तो बटन अगली लाइन में चले जाएंगे */
+    justify-content: center; /* बटन्स को बीच में लाने के लिए */
+    gap: 15px; /* बटन्स के बीच में 15px की जगह */
+    margin-top: 20px;
   }
   .filters button {
-    background: none;
+    background: transparent;
     border: 1.8px solid #bbb;
-    border-radius: 30px;
-    padding: 8px 18px;
+    border-radius: 25px;
+    padding: 10px 20px;
     margin: 0 6px;
     color: #555;
     font-weight: 600;
@@ -347,6 +353,19 @@
     transition: all 0.3s ease;
     font-size: 0.9rem;
   }
+
+  /* --- मीडिया क्वेरी: मोबाइल के लिए --- */
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column; /* बटन्स को एक-दूसरे के नीचे दिखाने के लिए */
+    align-items: stretch; /* बटन्स को पूरी चौड़ाई में फैलाने के लिए */
+  }
+
+  .filter-btn {
+    width: 100%; /* हर बटन पूरी चौड़ाई ले लेगा */
+    margin-bottom: 10px; /* बटन्स के बीच थोड़ी जगह */
+  }
+}
   .filters button.active, .filters button:hover {
     color: #fff;
     background: #ff6600;
@@ -629,3 +648,70 @@
       text-align: center;
     }
   }
+
+  /* Hamburger Menu Button */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #ff6600;
+}
+
+/* Mobile Styles */
+@media (max-width: 940px) {
+  
+  nav {
+    position: absolute;
+    top: 75px; /* header height */
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+
+    /* animation */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    list-style: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  #menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #ff6600;
+  }
+
+  /* When menu is open */
+  nav.show {
+    max-height: 500px; /* adjust according to number of items */
+  }
+
+  .download-cv {
+    display: none; /* optional on mobile */
+  }
+}
+
