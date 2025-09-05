@@ -1,11 +1,77 @@
+/* --- यह लोडर का CSS है, इसे यहाँ जोड़ें --- */
+/* Loading Page */
+#loader-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #0f0f10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+    transition: opacity 1s ease-out;
+}
+.cube{
+    position:relative;
+    width:120px;height:120px;
+    transform-style:preserve-3d;
+    animation:spin 6s infinite linear;
+}
+.face{
+    position:absolute;width:120px;height:120px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:2.5rem;font-weight:bold;
+    color:#fff;border:2px solid #00ffe7;
+    background:rgba(0,255,231,0.1);
+    text-shadow:0 0 10px #00ffe7,0 0 30px #00ffe7;
+}
+.front{transform:translateZ(60px);}
+.back{transform:rotateY(180deg) translateZ(60px);}
+.right{transform:rotateY(90deg) translateZ(60px);}
+.left{transform:rotateY(-90deg) translateZ(60px);}
+.top{transform:rotateX(90deg) translateZ(60px);}
+.bottom{transform:rotateX(-90deg) translateZ(60px);}
+@keyframes spin{
+    0%{transform:rotateX(0) rotateY(0);}
+    100%{transform:rotateX(360deg) rotateY(360deg);}
+}
+#name1{
+    margin-top:40px;font-size:2.2rem;font-weight:700;letter-spacing:3px;
+    text-transform:uppercase;opacity:0;
+    background:linear-gradient(90deg,#ff6ec7,#6a5dff,#00f0ff);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    animation:fadeIn 2s forwards;animation-delay:3s;
+}
+.tagline{
+    margin-top:10px;font-size:1rem;opacity:0;
+    letter-spacing:2px;color:#ccc;
+    animation:fadeIn 2s forwards;animation-delay:4s;
+}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+
+#loader-page.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#main-content {
+    display: none;
+}
+/* --- लोडर CSS का अंत --- */
+
 /* Reset & base styles */
   * {
     margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth;
   }
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, "Montserrat", sans-serif;
+    font-family: 'Segoe UI', "Poppins", Tahoma, Geneva, Verdana, sans-serif, "Montserrat", sans-serif;
     background: #fff;
     color: #111;
+    overflow-x:hidden;
+    flex-direction:column;
   }
   a {
     color: inherit;
@@ -28,37 +94,6 @@
     line-height: 1.6;
     text-align: center;
 }
-
-  /* Loading Page */
-  #loading-page {
-    position: fixed;
-    inset: 0;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    flex-direction: column;
-  }
-  .loader {
-    border: 6px solid #eee;
-    border-top: 6px solid #ff6600;
-    border-radius: 50%;
-    width: 60px; height: 60px;
-    animation: spin 1.5s linear infinite;
-  }
-  @keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
-  }
-  #loading-text {
-    margin-top: 15px;
-    font-weight: 600;
-    color: #ff6600;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    font-family: 'Courier New', Courier, monospace;
-  }
 
   /* Container */
   .container {
