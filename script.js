@@ -71,24 +71,49 @@
 
 
   //collect user's data
-const form = document.getElementById('contact-form');
-
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  const email = form.email.value;
-
-  fetch("https://script.google.com/macros/s/AKfycby5OLGbjmtuf9sS0q7ByBZPFNlVcd2ylp7SGEf2heY6awHm2jUpTG5Gz7seAmiX9hQ/exec", {   // <-- Yaha Web App URL paste karo
-    method: "POST",
-    body: new URLSearchParams({ email: email })
-  })
-  .then(response => response.text())
-  .then(data => {
-    form.innerHTML = "<p style='color:green; font-weight:bold;'>Thank you! Your email has been saved.</p>";
-  })
-  .catch(error => {
-    form.innerHTML = "<p style='color:red; font-weight:bold;'>Oops! Something went wrong.</p>";
-    console.error(error);
-  });
+document.addEventListener("DOMContentLoaded", () => {
+    // यहाँ अपना नया Google Apps Script URL पेस्ट करें
+    const GOOGLE_APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbziayIwMemidmkA6DjLRP4H-wBPE-lPgKVMUHM73-CI5t5fyhFA7TULjJn2Czg3luQ/exec';
+  
+    const form = document.getElementById('contact-form');
+    const sendButton = document.getElementById('send-button');
+  
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+  
+        const formData = new FormData(form);
+  
+        sendButton.disabled = true;
+        sendButton.textContent = 'Sending...';
+  
+        fetch(GOOGLE_APP_SCRIPT_URL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(result => {
+            console.log('Success:', result);
+            if (result.status === 'success') {
+                alert('Your message has been sent successfully!');
+                form.reset();
+            } else {
+                alert(`An error occurred: ${result.message}`);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch Error:', error);
+            alert('An error occurred. Please check your internet connection and try again later.');
+        })
+        .finally(() => {
+            sendButton.disabled = false;
+            sendButton.textContent = 'Send';
+        });
+    });
 });
 
 // Hamburger Menu Toggle
@@ -99,4 +124,69 @@ menuToggle.addEventListener('click', () => {
   mainNav.classList.toggle('show');
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- Skill Bar Animation ---
+    const aboutSection = document.querySelector("#about");
+    const skillBars = document.querySelectorAll(".skill-bar-container");
 
+    const animateBars = () => {
+        skillBars.forEach(bar => {
+            const percentValue = parseInt(bar.dataset.percent, 10);
+            const progressBar = bar.querySelector(".progress-bar");
+            
+            // Set the final width for smooth animation
+            progressBar.style.width = bar.dataset.percent;
+
+            // Animate the percentage number
+            let count = 0;
+            const percentageInterval = setInterval(() => {
+                if (count <= percentValue) {
+                    bar.querySelector(".skill-bar-container::after").textContent = `${count}%`;
+                    count++;
+                } else {
+                    clearInterval(percentageInterval);
+                }
+            }, 10); // Speed of the counting
+        });
+    };
+
+    // Use Intersection Observer to trigger animation when the section is visible
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateBars();
+                observer.disconnect(); // Stop observing after animation
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the section is visible
+    });
+
+    observer.observe(aboutSection);
+
+    // --- Testimonial Slider (No changes needed) ---
+    const slides = document.querySelectorAll(".testimonial-slide");
+    const controls = document.querySelectorAll(".control-btn");
+    let currentSlide = 0;
+
+    const showSlide = (index) => {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            slide.style.transform = `translateX(-${index * 100}%)`;
+        });
+        controls.forEach(control => control.classList.remove("active"));
+        
+        slides[index].classList.add("active");
+        controls[index].classList.add("active");
+    };
+
+    controls.forEach((btn, index) => {
+        btn.addEventListener("click", () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+    });
+
+    showSlide(currentSlide);
+});
