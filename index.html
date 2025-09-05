@@ -64,32 +64,31 @@
   </section>
 
   <!-- About Me Section -->
-  <section id="about">
-    <div id="about-img-wrapper">
-      <!-- Space reserved for 3D cartoon boy image -->
-      <img src="boy.png" alt="3D Cartoon Boy" />
-    </div>
-    <div id="about-text">
-      <h2>About Me</h2>
-      <p>I am Koshti Ronak, a passionate UI/UX Designer from Ahmedabad, Gujarat. With hands-on experience in tools like Figma, Adobe XD, Photoshop.</p>
-      <div class="skill">
-        <label for="ux">UX</label>
-        <progress id="ux" max="100" value="85"></progress>
-      </div>
-      <div class="skill">
-        <label for="website-design">Website Design</label>
-        <progress id="website-design" max="100" value="90"></progress>
-      </div>
-      <div class="skill">
-        <label for="app-design">App Design</label>
-        <progress id="app-design" max="100" value="88"></progress>
-      </div>
-      <div class="skill">
-        <label for="graphic-design">Graphic Design</label>
-        <progress id="graphic-design" max="100" value="80"></progress>
-      </div>
-    </div>
-  </section>
+   <section id="about">
+        <div id="about-img-wrapper">
+            <img src="boy.png" alt="3D Cartoon Boy" />
+        </div>
+        <div id="about-text">
+            <h2>About Me</h2>
+            <p>I am Koshti Ronak, a passionate UI/UX Designer from Ahmedabad, Gujarat. With hands-on experience in tools like Figma, Adobe XD, Photoshop.</p>
+            <div class="skill-bar-container" data-percent="85%">
+                <div class="skill-name">UX</div>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="skill-bar-container" data-percent="95%">
+                <div class="skill-name">Website Design</div>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="skill-bar-container" data-percent="90%">
+                <div class="skill-name">App Design</div>
+                <div class="progress-bar"></div>
+            </div>
+            <div class="skill-bar-container" data-percent="80%">
+                <div class="skill-name">Graphic Design</div>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </section>
 
   <!-- Services Section -->
   <section id="services">
@@ -121,15 +120,15 @@
 
   <!-- Projects Section -->
   <section id="projects">
-    <h2>My Projects</h2>
-    <p class="description">A selection of my recent works showcasing design, creativity, and user-focused solutions.</p>
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="uiux">UI/UX</button>
-      <button class="filter-btn" data-filter="web">Web Design</button>
-      <button class="filter-btn" data-filter="app">App Design</button>
-      <button class="filter-btn" data-filter="graphic">Graphic Design</button>
-    </div>
+     <h2>My Projects</h2>
+        <p class="description">A selection of my recent works showcasing design, creativity, and user-focused solutions.</p>
+        <div class="filters" aria-label="Project filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="uiux">UI/UX</button>
+            <button class="filter-btn" data-filter="web">Web Design</button>
+            <button class="filter-btn" data-filter="app">App Design</button>
+            <button class="filter-btn" data-filter="graphic">Graphic Design</button>
+        </div>
     <div class="projects-grid" id="projects-grid">
 
       <!-- UI/UX projects -->
@@ -208,47 +207,57 @@
 
   <!-- Testimonials Section -->
   <section id="testimonials">
-    <h2>Testimonials</h2>
-    <p class="description">What my clients say about working with me, my design process, and the results we achieved together.</p>
-    <div class="testimonial-slider" aria-label="Testimonials">
-      <div class="testimonial-slide active">
-        <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" />
-        <div>
-          <p class="testimonial-content">Working with Ronak on our RR Interior World project was a great experience. He understood our vision, designed a modern and user-friendly interface, and delivered everything on time. The attention to detail and creativity really impressed us.</p>
-          <p class="testimonial-author">- Abhishek Yognik</p>
+        <h2>Testimonials</h2>
+        <p class="description">What my clients say about working with me, my design process, and the results we achieved together.</p>
+        <div class="testimonial-slider" aria-label="Testimonials">
+            <div class="testimonial-slide active">
+                <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client Photo" />
+                <div>
+                    <p class="testimonial-content">Working with Ronak on our RR Interior World project was a great experience. He understood our vision, designed a modern and user-friendly interface, and delivered everything on time. The attention to detail and creativity really impressed us.</p>
+                    <p class="testimonial-author">- Abhishek Yognik</p>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo" />
+                <div>
+                    <p class="testimonial-content">Ronak transformed our app's UI into something beautiful and functional. The communication was smooth, and deadlines were met without hassle. We are thrilled with the results!</p>
+                    <p class="testimonial-author">- Sneha Patel</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="testimonial-slide">
-        <img class="testimonial-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client Photo" />
-        <div>
-          <p class="testimonial-content">Ronak transformed our app's UI into something beautiful and functional. The communication was smooth, and deadlines were met without hassle. We are thrilled with the results!</p>
-          <p class="testimonial-author">- Sneha Patel</p>
+        <div class="testimonial-controls" aria-label="Testimonial navigation">
+            <button class="control-btn active" aria-label="Show testimonial 1"></button>
+            <button class="control-btn" aria-label="Show testimonial 2"></button>
         </div>
-      </div>
-      <div class="testimonial-slide">
-        <img class="testimonial-img" src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client Photo" />
-        <div>
-          <p class="testimonial-content">Professional, creative, and easy to work with. Ronak took our website to a new level with his modern design approach and user experience insights.</p>
-          <p class="testimonial-author">- Rajesh Singh</p>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-controls" aria-label="Testimonial navigation">
-      <button class="control-btn active" aria-label="Show testimonial 1"></button>
-      <button class="control-btn" aria-label="Show testimonial 2"></button>
-      <button class="control-btn" aria-label="Show testimonial 3"></button>
-    </div>
-  </section>
+    </section>
 
   <!-- Contact Section -->
-  <section id="contact">
-    <h2>Let's Design Together</h2>
-    <p class="description">Have an idea or a project in mind? Let's collaborate and turn your vision into a clean, modern, and user-friendly design that truly stands out.</p>
-    <form id="contact-form" aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thank you for contacting!');">
-      <input type="email" name="email" placeholder="Enter Your Email" required aria-required="true" aria-label="Email" />
-      <button type="submit">Contact Me</button>
+  <section id="contact-form-section">
+  <div class="contact-form-container">
+    <h2>Contact me</h2>
+    <p class="description">Cultivating Connections: Reach Out And Connect With Me</p>
+    <form id="contact-form">
+      <div class="form-row">
+        <input type="text" id="name" name="name" placeholder="Name" required />
+        <input type="email" id="email" name="email" placeholder="Email" required />
+      </div>
+      <div class="form-row">
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" />
+        <select id="service" name="service" required>
+          <option value="">Service Of Interest</option>
+          <option value="uiux">UI/UX Design</option>
+          <option value="web-design">Website Design</option>
+          <option value="app-design">App Design</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <input type="text" id="timeline" name="timeline" placeholder="Timeline" />
+      </div>
+      <textarea id="project-details" name="project-details" rows="5" placeholder="Project Details..." required></textarea>
+      <button type="submit" id="send-button">Send</button>
     </form>
-  </section>
+  </div>
+</section>
 
 </main>
 
