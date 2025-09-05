@@ -189,4 +189,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     showSlide(currentSlide);
+        // --- 1. लोडर का JavaScript यहाँ जाएगा ---
+    const loaderPage = document.getElementById('loader-page');
+    const mainContent = document.getElementById('main-content');
+    
+    // लोडर एनिमेशन के लिए सुरक्षित समय
+    const loaderDuration = 7000; // 7 सेकंड (7000 मिलीसेकंड)
+
+    setTimeout(() => {
+        loaderPage.classList.add("fade-out");
+        
+        setTimeout(() => {
+            mainContent.style.display = 'block';
+            loaderPage.remove(); 
+        }, 1000); 
+    }, loaderDuration);
 });
